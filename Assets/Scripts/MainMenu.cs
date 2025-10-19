@@ -7,13 +7,16 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenuPanel;   // Kéo MainMenuPanel vào đây
     public GameObject levelPanel;      // Kéo LevelPanel vào đây
     public GameObject settingsPanel;   // Kéo SettingsPanel vào đây
+    public GameObject aboutUsPanel; // Kéo AboutUsPanel vào đây
 
     void Start()
     {
         if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
         if (levelPanel != null) levelPanel.SetActive(false);
         if (settingsPanel != null) settingsPanel.SetActive(false);
+        if (aboutUsPanel != null) aboutUsPanel.SetActive(false);
     }
+
 
     // Khi nhấn Play
     public void Play()
@@ -42,6 +45,21 @@ public class MainMenu : MonoBehaviour
         if (settingsPanel != null) settingsPanel.SetActive(false);
         if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
     }
+
+    // Khi nhấn nút About Us
+    public void AboutUs()
+    {
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
+        if (aboutUsPanel != null) aboutUsPanel.SetActive(true);
+    }
+
+    // Khi nhấn nút Back trong About Us panel
+    public void BackFromAboutUs()
+    {
+        if (aboutUsPanel != null) aboutUsPanel.SetActive(false);
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
+    }
+
 
     // Load Level bằng index
     public void LoadLevelByIndex(int buildIndex)
