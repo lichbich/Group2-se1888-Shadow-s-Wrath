@@ -1,46 +1,40 @@
 using UnityEngine;
+using System.Collections;
 
 public class CameraAutoMove : MonoBehaviour
 {
-    [Header("Camera Movement Settings")]
-    public float startX = -38f;       // Vị trí bắt đầu
-    public float endX = 928.7f;       // Vị trí kết thúc
-    public float yPos = 1.9f;         // Giữ nguyên tọa độ Y
-    public float zPos = -10f;         // Giữ nguyên tọa độ Z (camera 2D)
-    public float speed = 5f;          // Tốc độ di chuyển (unit/giây)
-    public bool autoStart = true;     // Có tự động di chuyển khi game bắt đầu không
+    // Nhân vật cần theo dõi
+    public Transform target;
 
-    private bool isMoving;
+    // Vị trí Y cố định cho camera
+    private float fixedY;
+
+    // Khoảng cách cố định theo trục Z (thường cho camera 2D)
+    public float zOffset = -10f;
+
+    // Tốc độ làm mượt chuyển động
+    public float smoothSpeed = 5f;
 
     void Start()
     {
-        // Đặt camera ở tọa độ ban đầu
-        transform.position = new Vector3(startX, yPos, zPos);
-
-        // Bắt đầu di chuyển nếu bật autoStart
-        isMoving = autoStart;
-    }
-
-    void Update()
-    {
-        if (!isMoving) return;
-
-        // Di chuyển camera theo trục X
-        float newX = transform.position.x + speed * Time.deltaTime;
-
-        // Giới hạn không vượt quá endX
-        if (newX >= endX)
+        if (target == null)
         {
-            newX = endX;
-            isMoving = false; // Dừng lại khi đến cuối
+            Debug.LogError("Chưa gán target cho camera!");
+            return;
         }
-
-        transform.position = new Vector3(newX, yPos, zPos);
+        // Lưu trữ vị trí Y ban đầu của camera
+        fixedY = transform.position.y;
     }
 
-    // Hàm này để bạn có thể bật lại di chuyển khi cần (ví dụ khi player chạm trigger)
-    public void StartMoving()
+    void LateUpdate()
     {
-        isMoving = true;
+        if (target != null)
+        {
+            // Vị trí `newPosition` chỉ cập nhật X, giữ Y và Z cố định
+            Vector3 newPosition = new Vector3(target.position.x, fixedY, target.position.z + zOffset);
+
+            // Làm mượt chuyển động của camera
+            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * smoothSpeed);
+        }
     }
 }
