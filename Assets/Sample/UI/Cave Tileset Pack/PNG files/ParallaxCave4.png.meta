@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ParallaxCave4_0: 4943438157887219529
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -60,6 +60,10 @@ public class MainMenu : MonoBehaviour
         if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
     }
 
+    public void GoToInstruction()
+    {
+        SceneManager.LoadScene("Instruction");
+    }
 
     // Load Level bằng index
     public void LoadLevelByIndex(int buildIndex)
