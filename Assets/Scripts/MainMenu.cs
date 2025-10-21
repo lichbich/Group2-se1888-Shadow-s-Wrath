@@ -6,7 +6,8 @@ public class MainMenu : MonoBehaviour
     [Header("UI")]
     public GameObject mainMenuPanel;   // Kéo MainMenuPanel vào đây
     public GameObject levelPanel;      // Kéo LevelPanel vào đây
-    public GameObject settingsPanel;   // Kéo SettingsPanel vào đây
+    public GameObject settingsPanel;
+    public GameObject aboutUsPanel;  // Kéo SettingsPanel vào đây
 
     void Start()
     {
