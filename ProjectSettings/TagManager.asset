@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Trap
   - CameraTrigger
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -17,6 +18,11 @@ TagManager:
   - UI
   - Ground
   - 
+  - CanJump
+  - Water
+  - UI
+  - Background
+  - Derate
   - 
   - 
   - 

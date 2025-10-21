@@ -43,6 +43,25 @@ public class MainMenu : MonoBehaviour
         if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
     }
 
+    // Khi nhấn nút About Us
+    public void AboutUs()
+    {
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
+        if (aboutUsPanel != null) aboutUsPanel.SetActive(true);
+    }
+
+    // Khi nhấn nút Back trong About Us panel
+    public void BackFromAboutUs()
+    {
+        if (aboutUsPanel != null) aboutUsPanel.SetActive(false);
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
+    }
+
+    public void GoToInstruction()
+    {
+        SceneManager.LoadScene("Instruction");
+    }
+
     // Load Level bằng index
     public void LoadLevelByIndex(int buildIndex)
     {
