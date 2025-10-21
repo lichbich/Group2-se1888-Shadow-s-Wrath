@@ -948,7 +948,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      main_lev_buildB_0: -1443660527843614457
+      main_lev_buildB_1: 8717750523839724754
+      main_lev_buildB_10: 1738295029248113899
+      main_lev_buildB_11: -7917013098988767836
+      main_lev_buildB_12: -61207553896512978
+      main_lev_buildB_13: -5516130061017286708
+      main_lev_buildB_14: 967756523335095360
+      main_lev_buildB_15: -8597322997737563629
+      main_lev_buildB_16: -1803644882598887904
+      main_lev_buildB_17: 8126134034009728213
+      main_lev_buildB_18: -6220333155416443659
+      main_lev_buildB_19: -1646571973949092560
+      main_lev_buildB_2: 5105772887180932597
+      main_lev_buildB_20: -7946310467836269852
+      main_lev_buildB_21: -6531991951868115649
+      main_lev_buildB_22: 6701541853295021553
+      main_lev_buildB_23: -2126994944942856898
+      main_lev_buildB_24: 4543357763709178088
+      main_lev_buildB_25: 7726449888051498868
+      main_lev_buildB_26: 2503624593794066843
+      main_lev_buildB_27: -6426212861936127523
+      main_lev_buildB_28: -1698669718214375225
+      main_lev_buildB_29: -4893304484467911112
+      main_lev_buildB_3: -3832542929276547523
+      main_lev_buildB_30: -7998115346890005524
+      main_lev_buildB_31: 2704509717457616983
+      main_lev_buildB_4: 8851198246523494934
+      main_lev_buildB_5: -217227337588386502
+      main_lev_buildB_6: 1560546065192044137
+      main_lev_buildB_7: -2609764647119263223
+      main_lev_buildB_8: -8278281609375585375
+      main_lev_buildB_9: 3265517189523480330
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
