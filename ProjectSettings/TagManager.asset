@@ -3,16 +3,29 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
+<<<<<<< HEAD
+=======
+  tags:
+  - CameraConfiner
+  - Ground
+  - Trap
+  - CameraTrigger
+>>>>>>> ad6358c86a162184b88867b567814e13acfe22a4
   tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
+  - Ground
   - 
-  - 
+  - CanJump
+  - Water
+  - UI
+  - Background
+  - Derate
   - 
   - 
   - 
