@@ -8,7 +8,6 @@ TagManager:
   - Ground
   - Trap
   - CameraTrigger
-  tags: []
   layers:
   - Default
   - TransparentFX
@@ -42,14 +41,18 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 785098721
+    locked: 0
+  - name: Trap
+    uniqueID: 1000629189
+    locked: 0
+  - name: UI
+    uniqueID: 1044024027
     locked: 0
   m_RenderingLayers:
   - Default
