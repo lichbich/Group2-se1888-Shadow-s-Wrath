@@ -1,46 +1,59 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!78 &1
+---
+!u!78 &1
 TagManager:
   serializedVersion: 3
   tags:
-  - Audio
+    - CameraConfiner
+    - Ground
+    - Trap
+    - CameraTrigger
   layers:
-  - Default
-  - TransparentFX
-  - Ignore Raycast
-  - 
-  - Water
-  - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+    - Default
+    - TransparentFX
+    - Ignore Raycast
+    - Player
+    - Water
+    - UI
+    - Ground
+    -
+    - CanJump
+    - Water
+    - UI
+    - Background
+    - Derate
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
+    - name: Default
+      uniqueID: 0
+      locked: 0
+    - name: Player
+      uniqueID: 785098721
+      locked: 0
+    - name: Trap
+      uniqueID: 1000629189
+      locked: 0
+    - name: UI
+      uniqueID: 1044024027
+      locked: 0
   m_RenderingLayers:
-  - Default
+    - Default
