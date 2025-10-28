@@ -1526,7 +1526,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7573b6093282f54aa6924380d455b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   loseUI: {fileID: 368151098}
+=======
+  loseUI: {fileID: 2120349694}
+>>>>>>> c60c6d158ddd075d7beb3702cb346ce6b58e1b3d
 --- !u!1 &594196586
 GameObject:
   m_ObjectHideFlags: 0
@@ -16582,6 +16586,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 446849996}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2120349694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8952696945620999092, guid: 0313abf321c4ff248827d579783b0787, type: 3}
+  m_PrefabInstance: {fileID: 941513210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
