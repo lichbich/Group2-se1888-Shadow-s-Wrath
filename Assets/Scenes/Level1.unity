@@ -5212,7 +5212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: cfcd6dd984adfcf4ca976f08a41393bf, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: cfcd6dd984adfcf4ca976f08a41393bf, type: 3}
       propertyPath: m_TagString
@@ -22194,7 +22194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2033653598}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Ground
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
