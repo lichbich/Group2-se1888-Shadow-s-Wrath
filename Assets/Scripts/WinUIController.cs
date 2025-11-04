@@ -18,6 +18,10 @@ public class WinUIController : MonoBehaviour
     public void NextLevel()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        LevelManager.Instance.UnlockNextLevel(currentLevel); // ✅ Mở khóa level tiếp theo
+
+        SceneManager.LoadScene(currentLevel + 1); // sang level kế
     }
 }
