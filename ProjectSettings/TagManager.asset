@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Trap
   - CameraTrigger
+  - Chest
+  - Key
   layers:
   - Default
   - TransparentFX

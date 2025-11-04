@@ -51,6 +51,12 @@ public class MainMenu : MonoBehaviour
         if (aboutUsPanel != null) aboutUsPanel.SetActive(true);
     }
 
+    public void Credits()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Credit");
+    }
+
     // Khi nhấn nút Back trong About Us panel
     public void BackFromAboutUs()
     {
