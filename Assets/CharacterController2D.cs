@@ -12,6 +12,10 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
 
+	// NEW: configure how many jumps the player gets (2 = double jump)
+	[SerializeField] private int m_MaxJumps = 2;
+	private int m_JumpsRemaining;
+
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
@@ -39,6 +43,8 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+
+		m_JumpsRemaining = m_MaxJumps;
 	}
 
 	private void FixedUpdate()
@@ -47,16 +53,32 @@ public class CharacterController2D : MonoBehaviour
 		m_Grounded = false;
 
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
-		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
 		for (int i = 0; i < colliders.Length; i++)
 		{
-			if (colliders[i].gameObject != gameObject)
-			{
-				m_Grounded = true;
-				if (!wasGrounded)
-					OnLandEvent.Invoke();
-			}
+			Collider2D col = colliders[i];
+			if (col == null)
+				continue;
+
+			// Ignore trigger colliders (not real ground)
+			if (col.isTrigger)
+				continue;
+
+			// Ignore this GameObject's own colliders and any child colliders
+			if (col.gameObject == gameObject || col.transform.IsChildOf(transform))
+				continue;
+
+			m_Grounded = true;
+			if (!wasGrounded)
+				OnLandEvent.Invoke();
+			// We found valid ground, no need to check further
+			break;
+		}
+
+		// Reset available jumps when grounded
+		if (m_Grounded)
+		{
+			m_JumpsRemaining = m_MaxJumps;
 		}
 	}
 
@@ -123,12 +145,19 @@ public class CharacterController2D : MonoBehaviour
 				Flip();
 			}
 		}
-		// If the player should jump...
-		if (m_Grounded && jump)
+
+		// Jump handling: allow jump when request present and there are jumps remaining.
+		if (jump && m_JumpsRemaining > 0)
 		{
+			// Optional: zero vertical velocity so jump height is consistent whether rising/falling
+			m_Rigidbody2D.linearVelocity = new Vector2(m_Rigidbody2D.linearVelocity.x, 0f);
+
 			// Add a vertical force to the player.
-			m_Grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			m_JumpsRemaining--;
+
+			// Mark as not grounded (prevents immediate re-trigger)
+			m_Grounded = false;
 		}
 	}
 
