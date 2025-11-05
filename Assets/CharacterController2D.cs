@@ -128,9 +128,11 @@ public class CharacterController2D : MonoBehaviour
 			}
 
 			// Move the character by finding the target velocity
-			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.linearVelocity.y);
-			// And then smoothing it out and applying it to the character
-			m_Rigidbody2D.linearVelocity = Vector3.SmoothDamp(m_Rigidbody2D.linearVelocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+			// Use Rigidbody2D.velocity (not a non-existent linearVelocity)
+			Vector3 currentVel = new Vector3(m_Rigidbody2D.linearVelocity.x, m_Rigidbody2D.linearVelocity.y, 0f);
+			Vector3 targetVelocity = new Vector3(move * 10f, m_Rigidbody2D.linearVelocity.y, 0f);
+			Vector3 newVel = Vector3.SmoothDamp(currentVel, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+			m_Rigidbody2D.linearVelocity = new Vector2(newVel.x, newVel.y);
 
 			// If the input is moving the player right and the player is facing left...
 			if (move > 0 && !m_FacingRight)

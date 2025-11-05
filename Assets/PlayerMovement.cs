@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
-
+    public PlayerAttack playerAttack;    // drag PlayerAttack component (or leave null and it will be ignored)
     public Animator animator;
 
     public float runSpeed = 40f;
@@ -14,21 +14,40 @@ public class PlayerMovement : MonoBehaviour
 
     bool jump = false;
 
-
     private void Awake()
     {
+        if (playerAttack == null)
+            playerAttack = GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        // If currently attacking and you want to freeze horizontal control, zero horizontalMove.
+        // Still allow jump input so double-jump works while attacking.
+        if (playerAttack != null && playerAttack.IsAttacking)
+        {
+            horizontalMove = 0f;
+        }
+        else
+        {
+            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        }
 
-        if (animator != null) // Update animator parameters
+        // update animator speed (show zero when attacking for crisp feedback)
+        if (animator != null)
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+        }
+
+        // Optional: tell attack about facing direction (useful if you rely on this)
+        if (playerAttack != null)
+        {
+            if (horizontalMove > 0f) playerAttack.SetFacingDirection(true);
+            else if (horizontalMove < 0f) playerAttack.SetFacingDirection(false);
         }
     }
 
