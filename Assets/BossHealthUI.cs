@@ -39,10 +39,14 @@ public class BossHealthUI : MonoBehaviour
     private Coroutine frontFillCoroutine;
     private bool isVisible = false;
 
+    // NEW: once set true the UI will remain visible until explicitly hidden (e.g. boss death)
+    private bool persistentVisible = false;
+
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup == null) canvasGroup = gameObject.AddComponent<CanvasGroup>();
+        // start hidden
         canvasGroup.alpha = 0f;
 
         if (frontFill != null) frontFill.fillAmount = 1f;
@@ -77,6 +81,22 @@ public class BossHealthUI : MonoBehaviour
         if (frontFill != null) StartCoroutine(FlashFront());
     }
 
+    // NEW: update visuals without showing or starting hit/lerp coroutines
+    public void SetHealthSilent(float normalized)
+    {
+        normalized = Mathf.Clamp01(normalized);
+
+        // update texts
+        UpdatePercentText(normalized);
+
+        // stop any ongoing fill coroutines and set instantly
+        if (frontFillCoroutine != null) { StopCoroutine(frontFillCoroutine); frontFillCoroutine = null; }
+        if (backLerpCoroutine != null) { StopCoroutine(backLerpCoroutine); backLerpCoroutine = null; }
+
+        if (frontFill != null) frontFill.fillAmount = normalized;
+        if (backFill != null) backFill.fillAmount = normalized;
+    }
+
     public void SetBossName(string bossName)
     {
         if (nameText != null) nameText.text = bossName;
@@ -109,8 +129,6 @@ public class BossHealthUI : MonoBehaviour
 
         yield return new WaitForSeconds(backLerpDelay);
 
-        float t = 0f;
-        float start = backFill.fillAmount;
         while (Mathf.Abs(backFill.fillAmount - target) > 0.001f)
         {
             backFill.fillAmount = Mathf.MoveTowards(backFill.fillAmount, target, backLerpSpeed * Time.deltaTime);
@@ -136,9 +154,12 @@ public class BossHealthUI : MonoBehaviour
         frontFill.color = original;
     }
 
-    // Show for visibleDurationAfterHit then fade out
+    // Show for visibleDurationAfterHit then fade out unless persistentVisible == true
     private void ShowTemporarily()
     {
+        if (persistentVisible)
+            return; // don't start hide routine when persistent
+
         if (hideCoroutine != null) StopCoroutine(hideCoroutine);
         ShowImmediate();
         hideCoroutine = StartCoroutine(HideAfterDelay());
@@ -147,6 +168,13 @@ public class BossHealthUI : MonoBehaviour
     private IEnumerator HideAfterDelay()
     {
         yield return new WaitForSeconds(visibleDurationAfterHit);
+
+        // If persistent was enabled while waiting, don't hide
+        if (persistentVisible)
+        {
+            hideCoroutine = null;
+            yield break;
+        }
 
         float t = 0f;
         float start = canvasGroup.alpha;
@@ -166,6 +194,30 @@ public class BossHealthUI : MonoBehaviour
         if (hideCoroutine != null) StopCoroutine(hideCoroutine);
         canvasGroup.alpha = 1f;
         isVisible = true;
+    }
+
+    // NEW: show and keep visible until HidePersistent/HideImmediate called
+    public void ShowPersistent()
+    {
+        persistentVisible = true;
+        if (hideCoroutine != null) StopCoroutine(hideCoroutine);
+        ShowImmediate();
+    }
+
+    // NEW: stop persistence and allow normal hide behaviour
+    public void ClearPersistent()
+    {
+        persistentVisible = false;
+    }
+
+    // NEW: hide now and clear persistence (useful on boss death)
+    public void HideImmediate()
+    {
+        if (hideCoroutine != null) StopCoroutine(hideCoroutine);
+        persistentVisible = false;
+        canvasGroup.alpha = 0f;
+        isVisible = false;
+        hideCoroutine = null;
     }
 
     // Entrance animation: slide from offset into position and show

@@ -35,6 +35,14 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
     [Tooltip("Minimum seconds between forced repath requests.")]
     public float repathCooldown = 0.12f;
 
+    [Header("Animation")]
+    [Tooltip("Optional: Animator to update movement parameters (e.g. 'Speed'). If null, will try to find one on this GameObject or its children.")]
+    public Animator animator;
+    [Tooltip("If true, update the animator 'Speed' parameter each FixedUpdate using horizontal velocity.")]
+    public bool updateAnimatorSpeed = true;
+    [Tooltip("Animator float parameter name used for horizontal speed.")]
+    public string animatorSpeedParam = "Speed";
+
     private float vxSmoothRef = 0f;
     private float lastRepathTime = -10f;
     private float lastY;
@@ -45,6 +53,14 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         if (ai == null) Debug.LogError("AIPath component required on " + name);
         if (rb == null) Debug.LogError("Rigidbody2D component required on " + name);
+
+        // If animator not assigned in inspector, prefer Animator on the same GameObject, then children
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+            if (animator == null)
+                animator = GetComponentInChildren<Animator>();
+        }
 
         // Let AI compute paths and desiredVelocity but do not let it overwrite transform/rotation.
         if (ai != null)
@@ -105,6 +121,13 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
 
         // Apply horizontal velocity while preserving vertical velocity (gravity)
         rb.linearVelocity = new Vector2(newVx, rb.linearVelocity.y);
+
+        // Update animator 'Speed' parameter (use absolute horizontal velocity)
+        if (updateAnimatorSpeed && animator != null)
+        {
+            // Use the smoothed horizontal velocity so animation matches visible movement
+            animator.SetFloat(animatorSpeedParam, Mathf.Abs(newVx));
+        }
 
         // Optional: flip sprite to face movement direction
         if (autoFlipSprite && Mathf.Abs(newVx) > 0.05f)
