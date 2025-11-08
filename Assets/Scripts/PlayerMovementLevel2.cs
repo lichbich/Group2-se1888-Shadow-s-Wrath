@@ -25,6 +25,11 @@ public class PlayerMovementLevel2 : MonoBehaviour
 
     [Header("Lose UI")]
     [SerializeField] private GameObject loseUI;
+    [Header("Sound Settings")]
+    [SerializeField] private AudioClip gameOverClip;
+    [SerializeField] private AudioClip jumpClip;   //  âm thanh nhảy
+
+
 
     [Header("Camera Settings")]
     [SerializeField] private CinemachineCamera camera;
@@ -83,6 +88,7 @@ public class PlayerMovementLevel2 : MonoBehaviour
             if (isground)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                FindFirstObjectByType<AudioManager>().PlaySFX(jumpClip);
 
             }
         }
@@ -100,6 +106,8 @@ public class PlayerMovementLevel2 : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
         animator.SetTrigger("isDead");
+
+        FindObjectOfType<AudioManager>().PlaySFX(gameOverClip);
 
         // Gọi UI sau một chút để animation kịp hiển thị
         Invoke(nameof(ShowLoseUI), 1f);

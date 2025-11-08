@@ -3,25 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags:
-  - CameraConfiner
-  - Ground
-  - Trap
-  - CameraTrigger
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
-  - Water
-  - UI
-  - Ground
   - 
-  - CanJump
   - Water
   - UI
-  - Background
-  - Derate
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -42,20 +38,8 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 2406800453
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Player
-    uniqueID: 785098721
-    locked: 0
-  - name: Trap
-    uniqueID: 1000629189
-    locked: 0
-  - name: UI
-    uniqueID: 1044024027
     locked: 0
   m_RenderingLayers:
   - Default
