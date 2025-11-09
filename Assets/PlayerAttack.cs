@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("Freeze")]
     [Tooltip("Duration to freeze player movement when attacking (seconds). 0 disables freeze).")]
-    public float freezeDuration = 0.08f;
+    public float freezeDuration = 0.1f;
 
     // Optional: if PlayerMovement is not on the same GameObject you can assign it in Inspector
     public PlayerMovement playerMovement;

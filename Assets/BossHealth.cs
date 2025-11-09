@@ -25,6 +25,10 @@ public class BossHealth : MonoBehaviour, IDamageable
     [Header("Knockback")]
     [Tooltip("Multiplier applied to the incoming force before applying to Rigidbody2D")]
     public float knockbackMultiplier = 1f;
+    [Tooltip("If true, cancel physics knockback motion and keep boss standing in place")]
+    public bool cancelKnockbackMovement = true;
+    [Tooltip("How long the boss will be forced to stand still after being hit (seconds). If 0, uses invulnerabilityDuration.")]
+    public float forcedStandstillDuration = 0f;
 
     [Header("Death")]
     public float deathDelay = 1f;
@@ -71,10 +75,6 @@ public class BossHealth : MonoBehaviour, IDamageable
         // Initialize UI visuals silently (do not show at start)
         if (healthUI != null)
             healthUI.SetHealthSilent(currentHealth / maxHealth);
-
-        // keep UpdateHealthUI for immediate internal UI (healthUI) update,
-        // slider-based controller is initialized in Start to ensure order
-        //UpdateHealthUI(); // removed to prevent showing bar at startup
     }
 
     private void Start()
@@ -102,16 +102,43 @@ public class BossHealth : MonoBehaviour, IDamageable
 
         // Feedback
         OnHit?.Invoke();
-        // Do not trigger a 'Hit' animation — boss will flash instead
+        // Spawn hit VFX / SFX / flash (visual/auditory feedback)
         if (hitVfxPrefab != null) Instantiate(hitVfxPrefab, hitPoint, Quaternion.identity);
         if (audioSource != null && hitSfx != null) audioSource.PlayOneShot(hitSfx);
         if (spriteToFlash != null) StartCoroutine(FlashCoroutine());
+
+        // Trigger TakeHit animation only if boss remains alive after this hit.
+        if (animator != null && currentHealth > 0f)
+        {
+            // Clear attack triggers to avoid accidental cross-triggers, then set hit trigger.
+            animator.ResetTrigger("Attack1");
+            animator.ResetTrigger("Attack2");
+            animator.SetTrigger("Hit");
+        }
 
         // Apply knockback impulse
         if (rb != null)
         {
             Vector2 impulse = force * knockbackMultiplier;
             rb.AddForce(impulse, ForceMode2D.Impulse);
+
+            // Optionally cancel movement immediately so boss doesn't get pushed/flipped by physics.
+            if (cancelKnockbackMovement)
+            {
+                rb.linearVelocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+            }
+        }
+
+        // Keep the boss standing still and prevent flipping while hit
+        // Try to find BossCombat on same GameObject and call its API
+        var combat = GetComponent<BossCombat>();
+        if (combat != null)
+        {
+            float duration = forcedStandstillDuration > 0f ? forcedStandstillDuration : invulnerabilityDuration;
+            // small safety minimum so very short invul doesn't look odd
+            duration = Mathf.Max(duration, 0.08f);
+            combat.TemporarilyStop(duration, true, cancelKnockbackMovement);
         }
 
         // Show UI persistently first time the boss is hit
