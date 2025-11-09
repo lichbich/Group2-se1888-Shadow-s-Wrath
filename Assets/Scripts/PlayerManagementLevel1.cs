@@ -24,7 +24,8 @@ public class PlayerManagementLevel1 : MonoBehaviour
         {
             loseUI.SetActive(true);
         }
-
+        // Reset dữ liệu key + chest
+        FindFirstObjectByType<ChestCollect>()?.ResetProgress();
         // Dừng game
         Time.timeScale = 0f;
 

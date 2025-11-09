@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - CameraConfiner
+  - Ground
+  - Trap
+  - CameraTrigger
+  - Chest
+  - Key
   layers:
   - Default
   - TransparentFX

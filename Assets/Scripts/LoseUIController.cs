@@ -5,6 +5,9 @@ public class LoseUIController : MonoBehaviour
 {
     public void Retry()
     {
+        PlayerPrefs.DeleteKey("CountVitality");
+        PlayerPrefs.Save();
+
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
