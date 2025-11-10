@@ -10,7 +10,10 @@ public class OpenDoorTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-                WinUI.SetActive(true);
+            // Phát âm thanh thắng cuộc
+            WinUI.SetActive(true);
+
+            FindFirstObjectByType<AudioLevel1>()?.playWinSound();
 
             // Chuyển sang level 2 sau 2 giây (có thể chỉnh)
             Invoke(nameof(LoadNextLevel), 2f);

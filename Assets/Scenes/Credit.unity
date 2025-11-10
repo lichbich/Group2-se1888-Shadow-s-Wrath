@@ -362,7 +362,7 @@ RectTransform:
   m_GameObject: {fileID: 903639107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.30715, y: 10.30715, z: 10.30715}
+  m_LocalScale: {x: 10.30715, y: 14.557818, z: 10.30715}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2121428429}
@@ -445,7 +445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -7337}
+  m_AnchoredPosition: {x: 0, y: -3536}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &993655428
@@ -535,8 +535,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1e738d991beb34d419a0697ac81b00be, type: 3}
-  m_Resource: {fileID: 8300000, guid: 1e738d991beb34d419a0697ac81b00be, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 671965cf09e3d8b4699c63d6ad85d11a, type: 3}
+  m_Resource: {fileID: 8300000, guid: 671965cf09e3d8b4699c63d6ad85d11a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -753,7 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0778703f75a90e4ca0d436134ae7c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 20
+  duration: 252
 --- !u!1 &2138728252
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,8 +790,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: -892.2888}
-  m_SizeDelta: {x: 1004.5146, y: 719.5777}
+  m_AnchoredPosition: {x: 0, y: -3375}
+  m_SizeDelta: {x: 1186.1074, y: 5483.9004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2138728254
 Animator:
@@ -835,57 +835,55 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "GAME TITLE:\n\nSHADOW\u2019S WRATH\n\nWhen darkness awakens\u2026 vengeance
-    follows.\n\nGI\u1EDAI THI\u1EC6U:\nGi\u1EEFa t\xE0n t\xEDch c\u1EE7a m\u1ED9t
-    \u0111\u1EBF ch\u1EBF b\u1ECB l\xE3ng qu\xEAn, m\u1ED9t linh h\u1ED3n l\u1EA1c
-    l\u1ED1i tr\u1ED7i d\u1EADy.\nB\xF3ng t\u1ED1i bao tr\xF9m, \xE1nh s\xE1ng t\xE0n
-    phai \u2014 ch\u1EC9 c\xF2n l\u1EA1i c\u01A1n th\u1ECBnh n\u1ED9.\nM\u1ED9t h\xE0nh
-    tr\xECnh chu\u1ED9c l\u1ED7i, m\u1ED9t b\u1EA3n giao h\u01B0\u1EDFng c\u1EE7a
-    m\xE1u, th\xE9p, v\xE0 k\xFD \u1EE9c.\n\nDEVELOPMENT TEAM\n\nSHADOW STUDIO\n\nExecutive
-    Producer\n\n\u0110o\xE0n Tr\u1ECDng L\u1ECBch\n\nProject Director\n\nPh\xED Ho\xE0ng
-    Nam\n\nCreative Director\n\nL\xEA Th\u1EBF Nam\n\nLead Game Designer\n\nNguy\u1EC5n
-    \u0110\u1EE9c Anh\n\nArt Director\n\nMai Gia Kh\xE1nh\n\nProgramming Team\n\n\u0110o\xE0n
-    Tr\u1ECDng L\u1ECBch \u2013 Gameplay Mechanics\n\nPh\xED Ho\xE0ng Nam \u2013
-    Physics & AI Systems\n\nL\xEA Th\u1EBF Nam \u2013 Animation Controller\n\nNguy\u1EC5n
-    \u0110\u1EE9c Anh \u2013 Character Controller, Camera\n\nMai Gia Kh\xE1nh \u2013
-    UI Programming\n\nArt & Visual Design\n\nNguy\u1EC5n \u0110\u1EE9c Anh \u2013
-    Character Design\n\nMai Gia Kh\xE1nh \u2013 UI & Menu Art\n\nPh\xED Ho\xE0ng
-    Nam \u2013 Environment Concept\n\nL\xEA Th\u1EBF Nam \u2013 Lighting & Post-Processing\n\n\u0110o\xE0n
-    Tr\u1ECDng L\u1ECBch \u2013 Particle Effects\n\nAudio & Soundtrack\n\nL\xEA Th\u1EBF
-    Nam \u2013 Original Composition\n\nPh\xED Ho\xE0ng Nam \u2013 Sound Design &
-    Mixing\n\n\u0110o\xE0n Tr\u1ECDng L\u1ECBch \u2013 Voice Direction\n\nNguy\u1EC5n
-    \u0110\u1EE9c Anh \u2013 Ambient Effects\n\nStory & Script\n\nMai Gia Kh\xE1nh
-    \u2013 Narrative Writing\n\n\u0110o\xE0n Tr\u1ECDng L\u1ECBch \u2013 Dialogue
-    & Lore\n\nPh\xED Ho\xE0ng Nam \u2013 Quest Flow Design\n\nTechnical Support &
-    Optimization\n\nL\xEA Th\u1EBF Nam \u2013 Performance Tuning\n\nNguy\u1EC5n \u0110\u1EE9c
-    Anh \u2013 Debugging\n\nPh\xED Ho\xE0ng Nam \u2013 Cross-platform Build\n\n\u0110o\xE0n
-    Tr\u1ECDng L\u1ECBch \u2013 Scene Management\n\nCinematic & Trailer\n\n\u0110o\xE0n
-    Tr\u1ECDng L\u1ECBch \u2013 Direction & Editing\n\nMai Gia Kh\xE1nh \u2013 Title
-    Sequence & Credits\n\nL\xEA Th\u1EBF Nam \u2013 Camera Animation\n\nCharacter
-    Voice & Performance\n\nShadow (Main Character): \u0110o\xE0n Tr\u1ECDng L\u1ECBch\n\nThe
-    Oracle: Mai Gia Kh\xE1nh\n\nThe Warden: Ph\xED Ho\xE0ng Nam\n\nThe Lost One:
-    Nguy\u1EC5n \u0110\u1EE9c Anh\n\nNarrator: L\xEA Th\u1EBF Nam\n\nTesting & QA\n\nPh\xED
-    Ho\xE0ng Nam\n\nL\xEA Th\u1EBF Nam\n\n\u0110o\xE0n Tr\u1ECDng L\u1ECBch\n\nMai
-    Gia Kh\xE1nh\n\nNguy\u1EC5n \u0110\u1EE9c Anh\n\nBuild & Release\n\n\u0110o\xE0n
-    Tr\u1ECDng L\u1ECBch\n\nPh\xED Ho\xE0ng Nam\n\n\u2764Special Thanks To\n\nC\xF4
-    ThuyBT, ng\u01B0\u1EDDi \u0111\xE3 truy\u1EC1n c\u1EA3m h\u1EE9ng v\xE0 h\u01B0\u1EDBng
-    d\u1EABn t\u1EADn t\xECnh trong su\u1ED1t qu\xE1 tr\xECnh ph\xE1t tri\u1EC3n
-    d\u1EF1 \xE1n.\n\nNh\u1EEFng ng\u01B0\u1EDDi b\u1EA1n, gia \u0111\xECnh, v\xE0
-    t\u1EADp th\u1EC3 l\u1EDBp \u2013 v\xEC ni\u1EC1m tin, s\u1EF1 \u0111\u1ED9ng
-    vi\xEAn v\xE0 nh\u1EEFng \u0111\xEAm th\u1EE9c tr\u1EAFng c\xF9ng nhau.\n\nC\u1ED9ng
-    \u0111\u1ED3ng game indie Vi\u1EC7t Nam, n\u01A1i kh\u01A1i ngu\u1ED3n \u0111am
-    m\xEA.\n\nSoundtrack Featuring:\n\u201CWhispers of the Fallen\u201D \u2013 L\xEA
-    Th\u1EBF Nam\n\u201CEclipse of Fate\u201D \u2013 Ph\xED Ho\xE0ng Nam\n\u201CRemnant
-    of Light\u201D \u2013 \u0110o\xE0n Tr\u1ECDng L\u1ECBch\n\nTo our players:\nC\u1EA3m
+  m_text: "<align=center>\n<size=150%><b>GAME TITLE:</b></size>\n<size=160%><b>SHADOW\u2019S
+    WRATH</b></size>\n\n<i>When darkness awakens\u2026 vengeance follows.</i>\n\n<size=130%><b>GI\u1EDAI
+    THI\u1EC6U:</b></size>\nGi\u1EEFa t\xE0n t\xEDch c\u1EE7a m\u1ED9t \u0111\u1EBF
+    ch\u1EBF b\u1ECB l\xE3ng qu\xEAn, m\u1ED9t linh h\u1ED3n l\u1EA1c l\u1ED1i tr\u1ED7i
+    d\u1EADy. B\xF3ng t\u1ED1i bao tr\xF9m, \xE1nh s\xE1ng t\xE0n phai \u2014 ch\u1EC9
+    c\xF2n l\u1EA1i c\u01A1n th\u1ECBnh n\u1ED9. M\u1ED9t h\xE0nh tr\xECnh chu\u1ED9c
+    l\u1ED7i, m\u1ED9t b\u1EA3n giao h\u01B0\u1EDFng c\u1EE7a m\xE1u, th\xE9p, v\xE0
+    k\xFD \u1EE9c.\n\n<size=130%><b>DEVELOPMENT TEAM</b></size>\n\n<size=120%><b>G2
+    STUDIO</b></size>\n\n<b>Executive Producer</b>\n\u0110o\xE0n Tr\u1ECDng L\u1ECBch\n\n<b>Project
+    Director</b>\nPh\xED Ho\xE0ng Nam\n\n<b>Lead Game Designer</b>\nNguy\u1EC5n \u0110\u1EE9c
+    Anh\n\n<b>Art Director</b>\nMai Gia Kh\xE1nh\n\n<b>Programming Team</b>\n\u0110o\xE0n
+    Tr\u1ECDng L\u1ECBch \u2013 Gameplay Mechanics\nPh\xED Ho\xE0ng Nam \u2013 Physics
+    & AI Systems\nL\xEA Th\u1EBF Nam \u2013 Animation Controller\nNguy\u1EC5n \u0110\u1EE9c
+    Anh \u2013 Character Controller, Camera\nMai Gia Kh\xE1nh \u2013 UI Programming\n\n<b>Art
+    & Visual Design</b>\nNguy\u1EC5n \u0110\u1EE9c Anh \u2013 Character Design\nMai
+    Gia Kh\xE1nh \u2013 UI & Menu Art\nPh\xED Ho\xE0ng Nam \u2013 Environment Concept\nL\xEA
+    Th\u1EBF Nam \u2013 Lighting & Post-Processing\n\u0110o\xE0n Tr\u1ECDng L\u1ECBch
+    \u2013 Particle Effects\n\n<b>Audio & Soundtrack</b>\nMai Gia Kh\xE1nh \u2013
+    Original Composition\nMai Gia Kh\xE1nh \u2013 Sound Design & Mixing\n\u0110o\xE0n
+    Tr\u1ECDng L\u1ECBch \u2013 Support\nMai Gia Kh\xE1nh \u2013 Ambient Effects\n\n<b>Story
+    & Script</b>\nMai Gia Kh\xE1nh \u2013 Narrative Writing\n\u0110o\xE0n Tr\u1ECDng
+    L\u1ECBch \u2013 Dialogue & Lore\nPh\xED Ho\xE0ng Nam \u2013 Quest Flow Design\n\n<b>Technical
+    Support & Optimization</b>\nL\xEA Th\u1EBF Nam \u2013 Performance Tuning\nNguy\u1EC5n
+    \u0110\u1EE9c Anh \u2013 Debugging\nPh\xED Ho\xE0ng Nam \u2013 Cross-platform
+    Build\n\u0110o\xE0n Tr\u1ECDng L\u1ECBch \u2013 Scene Management\n\n<b>Cinematic
+    & Trailer</b>\n\u0110o\xE0n Tr\u1ECDng L\u1ECBch \u2013 Direction & Editing\nMai
+    Gia Kh\xE1nh \u2013 Title Sequence & Credits\nL\xEA Th\u1EBF Nam \u2013 Camera
+    Animation\n\n<b>Testing & QA</b>\nPh\xED Ho\xE0ng Nam\nL\xEA Th\u1EBF Nam\n\u0110o\xE0n
+    Tr\u1ECDng L\u1ECBch\nMai Gia Kh\xE1nh\nNguy\u1EC5n \u0110\u1EE9c Anh\n\n<b>Build
+    & Release</b>\n\u0110o\xE0n Tr\u1ECDng L\u1ECBch\nPh\xED Ho\xE0ng Nam\n\n<size=130%><b>\u2764
+    Special Thanks To \u2764</b></size>\n\n<b>C\xF4 ThuyBT</b>, ng\u01B0\u1EDDi \u0111\xE3
+    truy\u1EC1n c\u1EA3m h\u1EE9ng v\xE0 h\u01B0\u1EDBng d\u1EABn t\u1EADn t\xECnh
+    trong su\u1ED1t qu\xE1 tr\xECnh ph\xE1t tri\u1EC3n d\u1EF1 \xE1n.\n\nNh\u1EEFng
+    ng\u01B0\u1EDDi b\u1EA1n, gia \u0111\xECnh, v\xE0 t\u1EADp th\u1EC3 l\u1EDBp
+    \u2013 v\xEC ni\u1EC1m tin, s\u1EF1 \u0111\u1ED9ng vi\xEAn v\xE0 nh\u1EEFng \u0111\xEAm
+    th\u1EE9c tr\u1EAFng c\xF9ng nhau.\n\nC\u1ED9ng \u0111\u1ED3ng game indie Vi\u1EC7t
+    Nam, n\u01A1i kh\u01A1i ngu\u1ED3n \u0111am m\xEA.\n\n<size=130%><b>Soundtrack
+    Featuring:</b></size>\n<i>\u201CTreasure\u201D</i> \u2013 (S)trong\n<i>\u201CEclipse
+    of Fate\u201D</i> \u2013 Mai Gia Kh\xE1nh\n<i>\u201CRemnant of Light\u201D</i>
+    \u2013 \u0110o\xE0n Tr\u1ECDng L\u1ECBch\n\n<size=130%><b>To our players:</b></size>\nC\u1EA3m
     \u01A1n b\u1EA1n \u0111\xE3 \u0111\u1ED3ng h\xE0nh c\xF9ng ch\xFAng t\xF4i \u0111\u1EBFn
-    t\u1EADn c\xF9ng c\u1EE7a b\xF3ng t\u1ED1i.\nN\u1EBFu b\u1EA1n c\u1EA3m th\u1EA5y
+    t\u1EADn c\xF9ng c\u1EE7a b\xF3ng t\u1ED1i.\n<i>N\u1EBFu b\u1EA1n c\u1EA3m th\u1EA5y
     tr\xE1i tim m\xECnh v\u1EABn c\xF2n \u0111\u1EADp khi \xE2m nh\u1EA1c d\u1EEBng
-    l\u1EA1i\u2026\nTh\xEC Shadow\u2019s Wrath v\u1EABn c\xF2n s\u1ED1ng trong b\u1EA1n.\n\nTHE
-    END... OR THE BEGINNING OF A NEW CURSE.\n\nShadow Studio \xA9 2025 \u2014 All
-    Rights Reserved."
+    l\u1EA1i\u2026</i>\n<i>Th\xEC Shadow\u2019s Wrath v\u1EABn c\xF2n s\u1ED1ng trong
+    b\u1EA1n.</i>\n\nTHE END... OR THE BEGINNING OF A NEW CURSE.\n\n<size=90%>Shadow
+    Studio \xA9 2025 \u2014 All Rights Reserved.</size>\n</align>"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a1c0936dd239cab4587b18c4b9987b06, type: 2}
+  m_sharedMaterial: {fileID: 9096320297230794867, guid: a1c0936dd239cab4587b18c4b9987b06, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
