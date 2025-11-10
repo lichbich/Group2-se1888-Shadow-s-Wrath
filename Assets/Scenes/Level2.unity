@@ -393,8 +393,8 @@ GameObject:
   - component: {fileID: 227700924}
   - component: {fileID: 227700927}
   - component: {fileID: 227700926}
-  - component: {fileID: 227700928}
   - component: {fileID: 227700929}
+  - component: {fileID: 227700928}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -29581,6 +29581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5611566048833144484, guid: fb3882a69ef684541b3c16787e662c43, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8099144948791216466, guid: fb3882a69ef684541b3c16787e662c43, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -29677,6 +29681,10 @@ PrefabInstance:
     - target: {fileID: 5508691192209329363, guid: 613a275f8e331104f9a72d00decf2db6, type: 3}
       propertyPath: m_Name
       value: PauseUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508691192209329363, guid: 613a275f8e331104f9a72d00decf2db6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6337093196660340349, guid: 613a275f8e331104f9a72d00decf2db6, type: 3}
       propertyPath: m_Pivot.x
@@ -29859,6 +29867,10 @@ PrefabInstance:
     - target: {fileID: 8952696945620999092, guid: 0313abf321c4ff248827d579783b0787, type: 3}
       propertyPath: m_Name
       value: LoseUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952696945620999092, guid: 0313abf321c4ff248827d579783b0787, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

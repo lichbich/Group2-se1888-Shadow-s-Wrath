@@ -10,6 +10,7 @@ TagManager:
   - CameraTrigger
   - Chest
   - Key
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,12 +19,12 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - CanJump
-  - Water
+  - Foreground
   - UI
   - Background
-  - Derate
+  - VFX
+  - Enemy
+  - 
   - 
   - 
   - 
@@ -45,16 +46,16 @@ TagManager:
   - 
   m_SortingLayers:
   - name: Background
-    uniqueID: 2406800453
+    uniqueID: 3012019521
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: Foreground
+    uniqueID: 577842889
     locked: 0
   - name: Player
     uniqueID: 785098721
     locked: 0
-  - name: Trap
-    uniqueID: 1000629189
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: UI
     uniqueID: 1044024027
