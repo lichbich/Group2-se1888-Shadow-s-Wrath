@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class CreditEnd : MonoBehaviour
 {
-    public float duration = 20f; // thời gian chạy credit
+    public float duration = 60f; // thời gian chạy credit
 
     // Biến cờ để đảm bảo chỉ gọi hàm thoát 1 lần
     private bool isExiting = false;
