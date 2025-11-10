@@ -12,16 +12,28 @@ public class WinUIController : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("FinalMainMenu"); // thay bằng tên scene menu của bạn
+        SceneManager.LoadScene("FinalMainMenu"); // đổi đúng tên scene menu
     }
 
     public void NextLevel()
     {
         Time.timeScale = 1f;
 
-        int currentLevel = SceneManager.GetActiveScene().buildIndex;
-        LevelManager.Instance.UnlockNextLevel(currentLevel); // ✅ Mở khóa level tiếp theo
+        int currentBuildIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextBuildIndex = currentBuildIndex + 1;
 
-        SceneManager.LoadScene(currentLevel + 1); // sang level kế
+        // ✅ 1. Mở khóa level tiếp theo bằng PlayerPrefs (thay vì LevelManager.Instance)
+        LevelProgress.UnlockLevel(nextBuildIndex);
+
+        // ✅ 2. Kiểm tra xem có level tiếp theo trong Build Settings không
+        if (nextBuildIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextBuildIndex);
+        }
+        else
+        {
+            Debug.Log("🎉 Không còn level nào nữa! Quay lại menu...");
+            SceneManager.LoadScene("FinalMainMenu");
+        }
     }
 }

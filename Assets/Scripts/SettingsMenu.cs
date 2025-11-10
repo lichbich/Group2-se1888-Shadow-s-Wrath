@@ -54,6 +54,12 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
+    public void ResetProgress()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        Debug.Log("🎯 All progress has been reset!");
+    }
     private void ApplyVolume(float volume)
     {
         AudioListener.volume = volume; // Chỉnh âm lượng toàn game
