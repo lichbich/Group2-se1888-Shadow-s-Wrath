@@ -170,12 +170,15 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
     {
         if (ai == null || rb == null) return;
 
+        // Respect AI movement enabled state. If AI was paused (ai.canMove == false) we should not apply AI velocities.
+        bool aiCanMove = ai.canMove;
+
         // If dazed, force stand-still and skip normal movement/jump logic.
         if (dazeFramesRemaining > 0)
         {
             dazeFramesRemaining--;
             // prevent AI from trying to move while dazed
-            ai.canMove = false;
+            if (ai != null) ai.canMove = false;
             // zero horizontal movement (preserve vertical)
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
             // ensure animations reflect being idle
@@ -198,6 +201,26 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
             }
 
             // Update prevGrounded to current grounded state so landing detection doesn't fire immediately after daze
+            prevGrounded = IsGrounded();
+
+            return;
+        }
+
+        // When AI movement is disabled externally, force zero horizontal velocity and keep animator consistent.
+        if (!aiCanMove)
+        {
+            // prevent unintended horizontal motion
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+
+            if (updateAnimatorSpeed && animator != null)
+                animator.SetFloat(animatorSpeedParam, 0f);
+
+            // still update vertical param if present
+            if (!string.IsNullOrEmpty(animatorVerticalVelocityParam) && animator != null)
+                animator.SetFloat(animatorVerticalVelocityParam, rb.linearVelocity.y);
+
+            // Update grounding & lastY but skip movement/jump logic
+            lastY = transform.position.y;
             prevGrounded = IsGrounded();
 
             return;

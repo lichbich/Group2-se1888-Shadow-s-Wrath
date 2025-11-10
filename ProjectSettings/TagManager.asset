@@ -19,12 +19,12 @@ TagManager:
   - Water
   - UI
   - Ground
-  - Foreground
+  - 
+  - CanJump
+  - Water
   - UI
   - Background
-  - VFX
-  - Enemy
-  - 
+  - Derate
   - 
   - 
   - 
@@ -46,16 +46,16 @@ TagManager:
   - 
   m_SortingLayers:
   - name: Background
-    uniqueID: 3012019521
+    uniqueID: 2406800453
     locked: 0
-  - name: Foreground
-    uniqueID: 577842889
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Player
     uniqueID: 785098721
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: Trap
+    uniqueID: 1000629189
     locked: 0
   - name: UI
     uniqueID: 1044024027
