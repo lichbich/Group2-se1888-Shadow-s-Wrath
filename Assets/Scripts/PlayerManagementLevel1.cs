@@ -7,6 +7,9 @@ public class PlayerManagementLevel1 : MonoBehaviour
 
     private Rigidbody2D rb;
     [SerializeField] private GameObject loseUI;
+    [SerializeField] private AudioClip loseClip;
+    
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,6 +27,9 @@ public class PlayerManagementLevel1 : MonoBehaviour
         {
             loseUI.SetActive(true);
         }
+        //Phát thanh khi thua 
+        FindFirstObjectByType<AudioLevel1>()?.playLoseSound();
+
         // Reset dữ liệu key + chest
         FindFirstObjectByType<ChestCollect>()?.ResetProgress();
         // Dừng game
