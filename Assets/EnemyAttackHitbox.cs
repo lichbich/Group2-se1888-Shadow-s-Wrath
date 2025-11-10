@@ -22,14 +22,14 @@ public class EnemyAttackHitbox : MonoBehaviour
     {
         if (_hitRegistered) return;
 
-        // Look for PlayerVitality on the collided object or its parents
-        var pv = other.GetComponentInParent<PlayerVitality>();
+        // Look for PlayerHealth on the collided object or its parents
+        var pv = other.GetComponentInParent<PlayerHealth>();
         if (pv != null)
         {
             _hitRegistered = true;
 
-            // PlayerVitality.AddVitality accepts negative values -> subtract HP
-            PlayerVitality.AddVitality(-damage);
+            // Use the existing method name in PlayerHealth (Addhealth)
+            PlayerHealth.AddHealth(-damage);
 
             if (destroyOnHit)
             {
