@@ -72,6 +72,9 @@ public class ChestCollect : MonoBehaviour
     {
         if (collision.CompareTag("Chest"))
         {
+            //Phát âm thanh khi nhặt chest
+            FindFirstObjectByType<AudioLevel1>()?.playChestSound();
+
             countVitality++;
             PlayerPrefs.SetInt("CountVitality", countVitality);
             PlayerPrefs.Save();
