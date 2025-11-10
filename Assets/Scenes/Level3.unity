@@ -3248,6 +3248,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3961719716273854922, guid: fb3882a69ef684541b3c16787e662c43, type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5611566048833144484, guid: fb3882a69ef684541b3c16787e662c43, type: 3}
       propertyPath: m_Name
       value: WinUI
@@ -4653,10 +4657,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1360055345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 696cf8122cb45434aa7b8539308dc4e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 2341a2170a9497c4b9b86db292a83cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vitalityText: {fileID: 0}
+  healthText: {fileID: 0}
   heartsController: {fileID: 2096044306}
 --- !u!1 &1384484144
 GameObject:
@@ -5157,9 +5161,9 @@ MonoBehaviour:
   attack2SpawnPoint: {fileID: 504424815}
   waitAfterFirstAttack: 2
   waitAfterSecondAttack: 2
-  waitAfterThirdAttack: 4
-  attack1ActiveDuration: 2
-  attack2ActiveDuration: 4
+  waitAfterThirdAttack: 3
+  attack1ActiveDuration: 0.05
+  attack2ActiveDuration: 0.08333334
   attackRange: 3.8
   loopPatternWhileInRange: 1
   pauseAiDuringActiveFrame: 1
@@ -5214,16 +5218,16 @@ MonoBehaviour:
   autoRepath:
     mode: 2
     interval: 0.5
-    sensitivity: 10
-    maximumInterval: 2
+    sensitivity: 13
+    maximumInterval: 1.47
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0
-  pickNextWaypointDist: 1
-  endReachedDistance: 0
-  alwaysDrawGizmos: 0
+  pickNextWaypointDist: 3.78
+  endReachedDistance: 1.48
+  alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0

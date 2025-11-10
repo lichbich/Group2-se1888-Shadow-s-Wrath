@@ -6,26 +6,21 @@ public class PlayerVitality : MonoBehaviour
     public static int vitalityCount;
     public TextMeshProUGUI vitalityText;
 
-    [Tooltip("Optional: assign the hearts controller that will show/hide filled hearts")]
-    public PlayerHeartsController heartsController;
-
-    private const int MaxVitality = 3;
-
     private void Start()
     {
-        vitalityCount = MaxVitality;
+        vitalityCount = 0;
         UpdateUI();
     }
 
     public static void AddVitality(int amount)
     {
-        vitalityCount = Mathf.Clamp(vitalityCount + amount, 0, MaxVitality);
+        vitalityCount += amount;
         UpdateUIStatic();
     }
 
     public static void ResetVitality()
     {
-        vitalityCount = MaxVitality;
+        vitalityCount = 0;
         UpdateUIStatic();
     }
 
@@ -33,21 +28,12 @@ public class PlayerVitality : MonoBehaviour
     {
         if (vitalityText != null)
             vitalityText.text = vitalityCount.ToString("00");
-
-        if (heartsController != null)
-            heartsController.SetHearts(vitalityCount);
     }
 
     private static void UpdateUIStatic()
     {
         var instance = FindObjectOfType<PlayerVitality>();
         if (instance != null)
-        {
-            if (instance.vitalityText != null)
-                instance.vitalityText.text = vitalityCount.ToString("00");
-
-            if (instance.heartsController != null)
-                instance.heartsController.SetHearts(vitalityCount);
-        }
+            instance.vitalityText.text = vitalityCount.ToString("00");
     }
 }
