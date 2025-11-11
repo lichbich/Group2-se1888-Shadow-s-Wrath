@@ -887,7 +887,7 @@ MonoBehaviour:
     All Rights Reserved.</size>\n</align>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1c0936dd239cab4587b18c4b9987b06, type: 2}
-  m_sharedMaterial: {fileID: 9096320297230794867, guid: a1c0936dd239cab4587b18c4b9987b06, type: 2}
+  m_sharedMaterial: {fileID: -4459214918941885031, guid: a1c0936dd239cab4587b18c4b9987b06, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

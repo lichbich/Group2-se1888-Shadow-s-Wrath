@@ -4502,9 +4502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1963590872a0d0d42a44581a9b84171a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 4
-  button: {fileID: 1483048366}
-  canvasGroup: {fileID: 1483048370}
 --- !u!225 &1483048370
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6446,9 +6443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1963590872a0d0d42a44581a9b84171a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 3
-  button: {fileID: 2024872058}
-  canvasGroup: {fileID: 2024872061}
 --- !u!1 &2049977923
 GameObject:
   m_ObjectHideFlags: 0
