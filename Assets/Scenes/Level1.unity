@@ -4886,6 +4886,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5611566048833144484, guid: fb3882a69ef684541b3c16787e662c43, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8099144948791216466, guid: fb3882a69ef684541b3c16787e662c43, type: 3}
       propertyPath: m_Pivot.x
       value: 0
