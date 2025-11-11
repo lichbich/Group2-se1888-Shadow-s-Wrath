@@ -53,6 +53,7 @@ public class ChestCollect : MonoBehaviour
     public GameObject closeDoor;   // cửa đóng
     public GameObject openDoor;    // cửa mở
     public GameObject key;         // object key (ẩn ban đầu)
+    public TextMeshProUGUI pointEnd; // điểm kết thúc level
 
     public GameObject collectTextObject;
     public GameObject takeKeyTextObject;
@@ -111,6 +112,15 @@ public class ChestCollect : MonoBehaviour
     {
         if (countVitalityText != null)
             countVitalityText.text = countVitality.ToString("00");
+
+        // Update end-of-level display (pointEnd) as well, if assigned.
+        if (pointEnd != null)
+        {
+            // Format as needed. Here we use a two-digit format like "05".
+            pointEnd.text = countVitality.ToString("00");
+            // If you want a label instead, use:
+            // pointEnd.text = $"Points: {countVitality:00}";
+        }
     }
 
     private void UpdateKeyState()

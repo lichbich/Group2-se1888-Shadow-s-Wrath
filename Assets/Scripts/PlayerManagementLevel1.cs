@@ -8,7 +8,8 @@ public class PlayerManagementLevel1 : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private GameObject loseUI;
     [SerializeField] private AudioClip loseClip;
-    
+    public GameObject PointUI;
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,6 +38,7 @@ public class PlayerManagementLevel1 : MonoBehaviour
 
         // Ẩn Player (tuỳ chọn)
         gameObject.SetActive(false);
+        PointUI.SetActive(true);
     }
 
 }
