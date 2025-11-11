@@ -2686,7 +2686,7 @@ RectTransform:
   m_Father: {fileID: 206049433}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4502,9 +4502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1963590872a0d0d42a44581a9b84171a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 4
-  button: {fileID: 1483048366}
-  canvasGroup: {fileID: 1483048370}
 --- !u!225 &1483048370
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5667,7 +5664,7 @@ RectTransform:
   m_Father: {fileID: 830904287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6241,7 +6238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2018839386
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6446,9 +6443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1963590872a0d0d42a44581a9b84171a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 3
-  button: {fileID: 2024872058}
-  canvasGroup: {fileID: 2024872061}
 --- !u!1 &2049977923
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 908966a1d01999f4d98b42417ae240bf
+guid: 7605d9420b942b74d92b32babd961d63
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -26329759613171845
+    second: Group 4_0
+  - first:
+      213: -2591891768109001643
+    second: Group 4_1
+  - first:
+      213: -6463649221723598781
+    second: Group 4_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -34,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,89 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle-Sheet_0
+      name: Group 4_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 16
-        height: 30
+        width: 181
+        height: 135
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 839db13be0b67dd45a3a43d683a6bf15
-      internalID: -620159865
+      spriteID: b774c3f193572aff0800000000000000
+      internalID: -26329759613171845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-Sheet_1
+      name: Group 4_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 194
         y: 0
-        width: 16
-        height: 28
+        width: 182
+        height: 135
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: fdef41abe2e0d06469261ccb4ace9f39
-      internalID: -1431531353
+      spriteID: 5549a995b20c70cd0800000000000000
+      internalID: -2591891768109001643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-Sheet_2
+      name: Group 4_2
       rect:
         serializedVersion: 2
-        x: 70
+        x: 389
         y: 0
-        width: 16
-        height: 27
+        width: 181
+        height: 135
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8ec1acfc5cc8948469e800a843920358
-      internalID: -1022340089
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 0
-        width: 16
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35570cab02841a545a5923f5a6df31b5
-      internalID: 2059047772
+      spriteID: 3405f6a57418c46a0800000000000000
+      internalID: -6463649221723598781
       vertices: []
       indices: 
       edges: []
@@ -201,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2e620250348a608449d2d9b334e4027a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -211,10 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Idle-Sheet_0: -620159865
-      Idle-Sheet_1: -1431531353
-      Idle-Sheet_2: -1022340089
-      Idle-Sheet_3: 2059047772
+      Group 4_0: -26329759613171845
+      Group 4_1: -2591891768109001643
+      Group 4_2: -6463649221723598781
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

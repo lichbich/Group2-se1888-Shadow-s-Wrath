@@ -81,7 +81,7 @@ public class PlayerMovementLevel2 : MonoBehaviour
     private void handleJump()
     {
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
         {
             if (isground)
             {

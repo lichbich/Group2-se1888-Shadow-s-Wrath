@@ -199,7 +199,11 @@ public class BossHealth : MonoBehaviour, IDamageable
         if (healthUI != null)
             healthUI.HideImmediate();
 
+        // wait for death animation / delay
         yield return new WaitForSeconds(deathDelay);
+
+        // show win UI if available
+        GameUIManager.Instance?.ShowWin();
 
         // Destroy or disable - destroy by default
         Destroy(gameObject);
