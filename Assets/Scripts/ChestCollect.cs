@@ -54,8 +54,15 @@ public class ChestCollect : MonoBehaviour
     public GameObject openDoor;    // cửa mở
     public GameObject key;         // object key (ẩn ban đầu)
 
+    public GameObject collectTextObject;
+    public GameObject takeKeyTextObject;
+
+    public GameObject goToTextObject;
+
     private int countVitality = 0;
     private bool hasKey = false;
+
+    private int chestsRequired = 5; // Số chest cần để hiện key
 
     private void Start()
     {
@@ -66,6 +73,12 @@ public class ChestCollect : MonoBehaviour
         UpdateCountVitalityUI();
         UpdateKeyState();
         UpdateDoorState();
+
+        if (takeKeyTextObject != null)
+            takeKeyTextObject.SetActive(false);
+
+        if (goToTextObject != null)
+            goToTextObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -102,9 +115,19 @@ public class ChestCollect : MonoBehaviour
 
     private void UpdateKeyState()
     {
-        // Key chỉ hiện khi đủ 12 chest và chưa nhặt key
+        bool showKeyAndTakeKeyText = (countVitality >= chestsRequired && !hasKey);
+
         if (key != null)
-            key.SetActive(countVitality >= 12 && !hasKey);
+            key.SetActive(showKeyAndTakeKeyText);
+
+        if (collectTextObject != null)
+            collectTextObject.SetActive(!showKeyAndTakeKeyText);
+
+        if (takeKeyTextObject != null)
+            takeKeyTextObject.SetActive(showKeyAndTakeKeyText);
+
+        if (goToTextObject != null)
+            goToTextObject.SetActive(hasKey);
     }
 
     private void UpdateDoorState()

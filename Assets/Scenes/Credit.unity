@@ -876,14 +876,15 @@ MonoBehaviour:
     th\u1EE9c tr\u1EAFng c\xF9ng nhau.\n\nC\u1ED9ng \u0111\u1ED3ng game indie Vi\u1EC7t
     Nam, n\u01A1i kh\u01A1i ngu\u1ED3n \u0111am m\xEA.\n\n<color=#ca8934><size=130%><b>Soundtrack
     Featuring:</b></size></color>\n<i>\u201CTreasure\u201D</i> \u2013 (S)trong\n<i>\u201CEclipse
-    of Fate\u201D</i> \u2013 Mai Gia Khanh\n<i>\u201CRemnant of Light\u201D</i> \u2013
-    \u0110o\xE0n Tr\u1ECDng L\u1ECBch\n\n<color=#ca8934><size=130%><b>To our players:</b></size></color>\nC\u1EA3m
-    \u01A1n b\u1EA1n \u0111\xE3 \u0111\u1ED3ng h\xE0nh c\xF9ng ch\xFAng t\xF4i \u0111\u1EBFn
-    t\u1EADn c\xF9ng c\u1EE7a b\xF3ng t\u1ED1i.\n<i>N\u1EBFu b\u1EA1n c\u1EA3m th\u1EA5y
-    tr\xE1i tim m\xECnh v\u1EABn c\xF2n \u0111\u1EADp khi \xE2m nh\u1EA1c d\u1EEBng
-    l\u1EA1i\u2026</i>\n<i>Th\xEC Shadow\u2019s Wrath v\u1EABn c\xF2n s\u1ED1ng trong
-    b\u1EA1n.</i>\n\nTHE END... OR THE BEGINNING OF A NEW CURSE.\n\n<size=90%>Shadow
-    Studio \xA9 2025 \u2014 All Rights Reserved.</size>\n</align>"
+    of Fate\u201D</i> \u2013 Mai Gia Kh\xE1nh\n<i>\u201CRemnant of Light\u201D</i>
+    \u2013 \u0110o\xE0n Tr\u1ECDng L\u1ECBch\n\n<color=#ca8934><size=130%><b>To our
+    players:</b></size></color>\nC\u1EA3m \u01A1n b\u1EA1n \u0111\xE3 \u0111\u1ED3ng
+    h\xE0nh c\xF9ng ch\xFAng t\xF4i \u0111\u1EBFn t\u1EADn c\xF9ng c\u1EE7a b\xF3ng
+    t\u1ED1i.\n<i>N\u1EBFu b\u1EA1n c\u1EA3m th\u1EA5y tr\xE1i tim m\xECnh v\u1EABn
+    c\xF2n \u0111\u1EADp khi \xE2m nh\u1EA1c d\u1EEBng l\u1EA1i\u2026</i>\n<i>Th\xEC
+    Shadow\u2019s Wrath v\u1EABn c\xF2n s\u1ED1ng trong b\u1EA1n.</i>\n\nTHE END...
+    OR THE BEGINNING OF A NEW CURSE.\n\n<size=90%>Shadow Studio \xA9 2025 \u2014
+    All Rights Reserved.</size>\n</align>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1c0936dd239cab4587b18c4b9987b06, type: 2}
   m_sharedMaterial: {fileID: 9096320297230794867, guid: a1c0936dd239cab4587b18c4b9987b06, type: 2}

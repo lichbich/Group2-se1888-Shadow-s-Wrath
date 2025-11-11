@@ -14,18 +14,18 @@ public class LevelManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public void UnlockNextLevel(int currentLevel)
-    {
-        int unlocked = PlayerPrefs.GetInt("UnlockedLevel", 1);
-        if (currentLevel >= unlocked)
-        {
-            PlayerPrefs.SetInt("UnlockedLevel", currentLevel + 1);
-            PlayerPrefs.Save();
-        }
-    }
+    //public void UnlockNextLevel(int currentLevel)
+    //{
+    //    int unlocked = PlayerPrefs.GetInt("UnlockedLevel", 1);
+    //    if (currentLevel >= unlocked)
+    //    {
+    //        PlayerPrefs.SetInt("UnlockedLevel", currentLevel + 1);
+    //        PlayerPrefs.Save();
+    //    }
+    //}
 
-    public int GetUnlockedLevel()
-    {
-        return PlayerPrefs.GetInt("UnlockedLevel", 1);
-    }
+    //public int GetUnlockedLevel()
+    //{
+    //    return PlayerPrefs.GetInt("UnlockedLevel", 1);
+    //}
 }

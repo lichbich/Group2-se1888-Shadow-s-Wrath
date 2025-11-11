@@ -22,8 +22,8 @@ public class WinUIController : MonoBehaviour
         int currentBuildIndex = SceneManager.GetActiveScene().buildIndex;
         int nextBuildIndex = currentBuildIndex + 1;
 
-        // ✅ 1. Mở khóa level tiếp theo bằng PlayerPrefs (thay vì LevelManager.Instance)
-        LevelProgress.UnlockLevel(nextBuildIndex);
+        //// ✅ 1. Mở khóa level tiếp theo bằng PlayerPrefs (thay vì LevelManager.Instance)
+        //LevelProgress.UnlockLevel(nextBuildIndex);
 
         // ✅ 2. Kiểm tra xem có level tiếp theo trong Build Settings không
         if (nextBuildIndex < SceneManager.sceneCountInBuildSettings)
