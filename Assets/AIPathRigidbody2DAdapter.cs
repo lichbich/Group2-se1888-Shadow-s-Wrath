@@ -96,6 +96,10 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
     [Tooltip("If checked, draw parameter gizmos in the scene view.")]
     public bool debugGizmos = true;
 
+    [Header("Runtime debug")]
+    [Tooltip("Enable logging for jump decision/debugging (disable in production).")]
+    public bool debugJumpLogging = false;
+
     // runtime fields
     private float vxSmoothRef = 0f;
     private float lastRepathTime = -10f;
@@ -112,6 +116,12 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
     // Ground state for landing detection
     private bool prevGrounded = true;
 
+    // animator parameter existence flags
+    private bool hasAnimatorSpeedParam;
+    private bool hasAnimatorJumpParam;
+    private bool hasAnimatorFallParam;
+    private bool hasAnimatorVerticalVelocityParam;
+
     private void Awake()
     {
         ai = GetComponent<AIPath>();
@@ -125,6 +135,25 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
             animator = GetComponent<Animator>();
             if (animator == null)
                 animator = GetComponentInChildren<Animator>();
+        }
+
+        // Cache which animator parameters actually exist to avoid runtime errors
+        hasAnimatorSpeedParam = AnimatorHasParameter(animatorSpeedParam);
+        hasAnimatorJumpParam = AnimatorHasParameter(animatorJumpParam);
+        hasAnimatorFallParam = AnimatorHasParameter(animatorFallParam);
+        hasAnimatorVerticalVelocityParam = AnimatorHasParameter(animatorVerticalVelocityParam);
+
+        // Warn if user enabled animator updates but parameter is missing
+        if (animator != null)
+        {
+            if (updateAnimatorSpeed && !hasAnimatorSpeedParam)
+                Debug.LogWarning($"{name} animator missing float parameter '{animatorSpeedParam}'. Disable updateAnimatorSpeed or add the parameter.");
+            if (updateAnimatorJump && !hasAnimatorJumpParam)
+                Debug.LogWarning($"{name} animator missing bool parameter '{animatorJumpParam}'. Disable updateAnimatorJump or add the parameter.");
+            if (updateAnimatorFall && !hasAnimatorFallParam)
+                Debug.LogWarning($"{name} animator missing bool parameter '{animatorFallParam}'. Disable updateAnimatorFall or add the parameter.");
+            if (!string.IsNullOrEmpty(animatorVerticalVelocityParam) && !hasAnimatorVerticalVelocityParam)
+                Debug.LogWarning($"{name} animator missing float parameter '{animatorVerticalVelocityParam}'. Leave empty or add the parameter.");
         }
 
         // Try to find player if not assigned
@@ -160,9 +189,9 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
         // ensure animator flags match initial state
         if (animator != null)
         {
-            if (updateAnimatorJump) animator.SetBool(animatorJumpParam, false);
-            if (updateAnimatorFall) animator.SetBool(animatorFallParam, false);
-            if (!string.IsNullOrEmpty(animatorVerticalVelocityParam)) animator.SetFloat(animatorVerticalVelocityParam, 0f);
+            if (updateAnimatorJump && hasAnimatorJumpParam) animator.SetBool(animatorJumpParam, false);
+            if (updateAnimatorFall && hasAnimatorFallParam) animator.SetBool(animatorFallParam, false);
+            if (hasAnimatorVerticalVelocityParam) animator.SetFloat(animatorVerticalVelocityParam, 0f);
         }
     }
 
@@ -182,13 +211,13 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
             // zero horizontal movement (preserve vertical)
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
             // ensure animations reflect being idle
-            if (updateAnimatorSpeed && animator != null)
+            if (updateAnimatorSpeed && hasAnimatorSpeedParam)
                 animator.SetFloat(animatorSpeedParam, 0f);
-            if (updateAnimatorJump && animator != null)
+            if (updateAnimatorJump && hasAnimatorJumpParam)
                 animator.SetBool(animatorJumpParam, false);
-            if (updateAnimatorFall && animator != null)
+            if (updateAnimatorFall && hasAnimatorFallParam)
                 animator.SetBool(animatorFallParam, false);
-            if (!string.IsNullOrEmpty(animatorVerticalVelocityParam) && animator != null)
+            if (hasAnimatorVerticalVelocityParam)
                 animator.SetFloat(animatorVerticalVelocityParam, rb.linearVelocity.y);
 
             // update lastY to avoid spurious repath triggers while dazed
@@ -212,11 +241,11 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
             // prevent unintended horizontal motion
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
 
-            if (updateAnimatorSpeed && animator != null)
+            if (updateAnimatorSpeed && hasAnimatorSpeedParam)
                 animator.SetFloat(animatorSpeedParam, 0f);
 
             // still update vertical param if present
-            if (!string.IsNullOrEmpty(animatorVerticalVelocityParam) && animator != null)
+            if (hasAnimatorVerticalVelocityParam)
                 animator.SetFloat(animatorVerticalVelocityParam, rb.linearVelocity.y);
 
             // Update grounding & lastY but skip movement/jump logic
@@ -233,9 +262,9 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
             if (!prevGrounded)
             {
                 // just landed
-                if (updateAnimatorJump && animator != null)
+                if (updateAnimatorJump && hasAnimatorJumpParam)
                     animator.SetBool(animatorJumpParam, false);
-                if (updateAnimatorFall && animator != null)
+                if (updateAnimatorFall && hasAnimatorFallParam)
                     animator.SetBool(animatorFallParam, false);
             }
 
@@ -278,7 +307,7 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
 
         // Update vertical velocity parameter (if used) and set jump/fall states based on vertical velocity
         float vy = rb.linearVelocity.y;
-        if (!string.IsNullOrEmpty(animatorVerticalVelocityParam) && animator != null)
+        if (hasAnimatorVerticalVelocityParam && animator != null)
         {
             animator.SetFloat(animatorVerticalVelocityParam, vy);
         }
@@ -288,13 +317,13 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
         {
             if (vy >= riseVelocityThreshold)
             {
-                if (updateAnimatorJump && animator != null) animator.SetBool(animatorJumpParam, true);
-                if (updateAnimatorFall && animator != null) animator.SetBool(animatorFallParam, false);
+                if (updateAnimatorJump && hasAnimatorJumpParam) animator.SetBool(animatorJumpParam, true);
+                if (updateAnimatorFall && hasAnimatorFallParam) animator.SetBool(animatorFallParam, false);
             }
             else if (vy <= fallVelocityThreshold)
             {
-                if (updateAnimatorFall && animator != null) animator.SetBool(animatorFallParam, true);
-                if (updateAnimatorJump && animator != null) animator.SetBool(animatorJumpParam, false);
+                if (updateAnimatorFall && hasAnimatorFallParam) animator.SetBool(animatorFallParam, true);
+                if (updateAnimatorJump && hasAnimatorJumpParam) animator.SetBool(animatorJumpParam, false);
             }
             // if vy in small dead zone, keep previous flags (no change)
         }
@@ -306,7 +335,7 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
         }
 
         // Update animator 'Speed' parameter (use absolute horizontal velocity)
-        if (updateAnimatorSpeed && animator != null)
+        if (updateAnimatorSpeed && hasAnimatorSpeedParam && animator != null)
         {
             // Use the smoothed horizontal velocity so animation matches visible movement
             animator.SetFloat(animatorSpeedParam, Mathf.Abs(newVx));
@@ -348,31 +377,26 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
             ai.Teleport(transform.position, false);
     }
 
+    // Improved grounded check: use OverlapCircle at a point slightly below the pivot.
+    // This is more robust across different pivot/scale setups than a CircleCast starting at the pivot.
     private bool IsGrounded()
     {
-        // Use a small circle cast downwards to be more robust than a single ray.
-        // Collect all hits and ignore own colliders and triggers.
-        Vector2 origin = transform.position;
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(origin, groundCheckRadius, Vector2.down, groundCheckDistance, groundLayer);
-        foreach (var hit in hits)
+        Vector2 checkCenter = (Vector2)transform.position + Vector2.down * groundCheckDistance;
+        Collider2D[] cols = Physics2D.OverlapCircleAll(checkCenter, groundCheckRadius, groundLayer);
+        foreach (var col in cols)
         {
-            if (hit.collider == null) continue;
-
-            // Ignore trigger colliders as "ground"
-            if (hit.collider.isTrigger) continue;
-
-            // Ignore our own collider(s)
-            if (hit.collider.attachedRigidbody == rb) continue;
-
-            // Any valid hit -> grounded
+            if (col == null) continue;
+            if (col.isTrigger) continue;
+            if (col.attachedRigidbody == rb) continue;
             return true;
         }
-
         return false;
     }
 
     private void TryJumpToPlayerPlatform()
     {
+        if (debugJumpLogging) Debug.Log($"{name} TryJumpToPlayerPlatform: timeSinceLastJump={(Time.time - lastJumpTime):F2}, hasJumped={hasJumped}, grounded={IsGrounded()}");
+
         if (Time.time - lastJumpTime < jumpCooldown) return;
 
         // Prevent multi-jumping until boss touches ground again
@@ -391,6 +415,8 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
             var st = ai.steeringTarget;
             float stDeltaY = st.y - transform.position.y;
             float stDx = Mathf.Abs(st.x - transform.position.x);
+
+            if (debugJumpLogging) Debug.Log($"{name} steeringTarget: {st} deltaY={stDeltaY:F2} dx={stDx:F2}");
 
             // Only accept steering target if it would actually require a jump (higher by at least minJumpHeight)
             // and is within horizontal range and within allowed max jump height.
@@ -412,10 +438,18 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
 
         float deltaY = targetPos.y - transform.position.y;
         // Only consider jumping if target is higher within bounds
-        if (deltaY < minJumpHeight || deltaY > maxJumpHeight) return;
+        if (deltaY < minJumpHeight || deltaY > maxJumpHeight)
+        {
+            if (debugJumpLogging) Debug.Log($"{name} Jump aborted: deltaY {deltaY:F2} out of [{minJumpHeight},{maxJumpHeight}]");
+            return;
+        }
 
         float dx = Mathf.Abs(targetPos.x - transform.position.x);
-        if (dx > jumpHorizontalRange) return;
+        if (dx > jumpHorizontalRange)
+        {
+            if (debugJumpLogging) Debug.Log($"{name} Jump aborted: dx {dx:F2} > jumpHorizontalRange {jumpHorizontalRange:F2}");
+            return;
+        }
 
         // compute effective gravity magnitude (positive). Use fallbacks so we don't end up with zero.
         float g = Mathf.Abs(Physics2D.gravity.y) * rb.gravityScale;
@@ -430,6 +464,8 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
         // minimal initial vertical velocity to reach deltaY: v = sqrt(2 * g * deltaY)
         float requiredVy = Mathf.Sqrt(2f * g * deltaY) * jumpVelocityBoost;
 
+        if (debugJumpLogging) Debug.Log($"{name} computed requiredVy={requiredVy:F2} for deltaY={deltaY:F2} g={g:F2}");
+
         // Only apply jump if a meaningful vertical velocity is computed.
         if (requiredVy > 0.01f)
         {
@@ -437,15 +473,17 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, requiredVy);
 
             // Set animator jumping flag
-            if (updateAnimatorJump && animator != null)
+            if (updateAnimatorJump && hasAnimatorJumpParam)
                 animator.SetBool(animatorJumpParam, true);
 
             // ensure falling flag cleared on jump
-            if (updateAnimatorFall && animator != null)
+            if (updateAnimatorFall && hasAnimatorFallParam)
                 animator.SetBool(animatorFallParam, false);
 
             lastJumpTime = Time.time;
             hasJumped = true;
+
+            if (debugJumpLogging) Debug.Log($"{name} Jump applied: vy={requiredVy:F2}");
         }
     }
 
@@ -469,11 +507,11 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
         hasJumped = true;
 
         // clear jumping/falling flag while dazed (boss stands still)
-        if (updateAnimatorJump && animator != null)
+        if (updateAnimatorJump && hasAnimatorJumpParam)
             animator.SetBool(animatorJumpParam, false);
-        if (updateAnimatorFall && animator != null)
+        if (updateAnimatorFall && hasAnimatorFallParam)
             animator.SetBool(animatorFallParam, false);
-        if (!string.IsNullOrEmpty(animatorVerticalVelocityParam) && animator != null)
+        if (hasAnimatorVerticalVelocityParam)
             animator.SetFloat(animatorVerticalVelocityParam, 0f);
     }
 
@@ -512,5 +550,17 @@ public class AIPathRigidbody2DAdapter : MonoBehaviour
             Gizmos.DrawLine(transform.position, ai.steeringTarget);
         }
 
+    }
+
+    // Helper: checks whether the configured animator contains a parameter with the given name.
+    private bool AnimatorHasParameter(string paramName)
+    {
+        if (animator == null) return false;
+        if (string.IsNullOrEmpty(paramName)) return false;
+        foreach (var p in animator.parameters)
+        {
+            if (p.name == paramName) return true;
+        }
+        return false;
     }
 }

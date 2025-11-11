@@ -50,7 +50,23 @@ public class PlayerHealth : MonoBehaviour
                 instance.TriggerDeathAnimation();
             }
 
-            GameUIManager.Instance?.ShowLose();
+            // Try the singleton first, fall back to FindObjectOfType if Instance is not yet assigned.
+            if (GameUIManager.Instance != null)
+            {
+                GameUIManager.Instance.ShowLose();
+            }
+            else
+            {
+                var gm = FindObjectOfType<GameUIManager>();
+                if (gm != null)
+                {
+                    gm.ShowLose();
+                }
+                else
+                {
+                    Debug.LogWarning("PlayerHealth: GameUIManager not found in scene when player died. Assign a GameUIManager GameObject so ShowLose can run.");
+                }
+            }
         }
     }
 

@@ -141,6 +141,9 @@ public class BossCombat : MonoBehaviour
                 yield return null;
             }
 
+            // Face player before attacking
+            FacePlayer();
+
             // Trigger animation only. Animator / Animation Events must spawn active frames now.
             if (attackStep == 1)
             {
@@ -371,5 +374,19 @@ public class BossCombat : MonoBehaviour
         Gizmos.color = new Color(0f, 1f, 0f, 0.15f);
         Gizmos.DrawLine(transform.position, transform.position + Vector3.down * groundCheckDistance);
         Gizmos.DrawWireSphere(transform.position + Vector3.down * groundCheckDistance, groundCheckRadius);
+    }
+
+    // NEW: Face the player immediately (flip X scale). Captures facing sign so freezeFacing keeps it.
+    private void FacePlayer()
+    {
+        if (player == null) return;
+        float dx = player.position.x - transform.position.x;
+        if (Mathf.Abs(dx) < 0.001f) return;
+        Vector3 s = transform.localScale;
+        s.x = Mathf.Sign(dx) * Mathf.Abs(s.x);
+        transform.localScale = s;
+
+        // update frozenFacingSign so if freeze starts immediately we preserve this facing
+        frozenFacingSign = Mathf.Sign(s.x);
     }
 }
