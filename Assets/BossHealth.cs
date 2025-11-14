@@ -102,6 +102,10 @@ public class BossHealth : MonoBehaviour, IDamageable
 
         // Feedback
         OnHit?.Invoke();
+
+        // Award score per hit (100 points per hit) — use GameUIManager so score is centralized.
+        GameUIManager.Instance?.AddScore(100);
+
         // Spawn hit VFX / SFX / flash (visual/auditory feedback)
         if (hitVfxPrefab != null) Instantiate(hitVfxPrefab, hitPoint, Quaternion.identity);
         if (audioSource != null && hitSfx != null) audioSource.PlayOneShot(hitSfx);
