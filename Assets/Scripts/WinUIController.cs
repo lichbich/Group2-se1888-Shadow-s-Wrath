@@ -36,4 +36,10 @@ public class WinUIController : MonoBehaviour
             SceneManager.LoadScene("FinalMainMenu");
         }
     }
+
+    public void Credit()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Credit"); 
+    }
 }

@@ -53,6 +53,7 @@ public class ChestCollect : MonoBehaviour
     public GameObject closeDoor;   // cửa đóng
     public GameObject openDoor;    // cửa mở
     public GameObject key;         // object key (ẩn ban đầu)
+    public TextMeshProUGUI pointEnd; // điểm kết thúc level
 
     public GameObject collectTextObject;
     public GameObject takeKeyTextObject;
@@ -111,6 +112,11 @@ public class ChestCollect : MonoBehaviour
     {
         if (countVitalityText != null)
             countVitalityText.text = countVitality.ToString("00");
+
+        if (pointEnd != null)
+        {
+            pointEnd.text = countVitality.ToString("00");
+        }
     }
 
     private void UpdateKeyState()
@@ -153,5 +159,11 @@ public class ChestCollect : MonoBehaviour
         UpdateCountVitalityUI();
         UpdateKeyState();
         UpdateDoorState();
+    }
+
+    // Public getter để các lớp khác (ví dụ PlayerManagementLevel1) có thể đọc điểm hiện tại
+    public int GetCountVitality()
+    {
+        return countVitality;
     }
 }
