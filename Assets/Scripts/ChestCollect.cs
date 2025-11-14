@@ -113,13 +113,9 @@ public class ChestCollect : MonoBehaviour
         if (countVitalityText != null)
             countVitalityText.text = countVitality.ToString("00");
 
-        // Update end-of-level display (pointEnd) as well, if assigned.
         if (pointEnd != null)
         {
-            // Format as needed. Here we use a two-digit format like "05".
             pointEnd.text = countVitality.ToString("00");
-            // If you want a label instead, use:
-            // pointEnd.text = $"Points: {countVitality:00}";
         }
     }
 
@@ -163,5 +159,11 @@ public class ChestCollect : MonoBehaviour
         UpdateCountVitalityUI();
         UpdateKeyState();
         UpdateDoorState();
+    }
+
+    // Public getter để các lớp khác (ví dụ PlayerManagementLevel1) có thể đọc điểm hiện tại
+    public int GetCountVitality()
+    {
+        return countVitality;
     }
 }
