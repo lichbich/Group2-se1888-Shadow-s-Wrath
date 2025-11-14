@@ -9,9 +9,15 @@ public class PlayerMovementLevel2 : MonoBehaviour
     [SerializeField] private float jumpForce = 7f;
     [SerializeField] private Animator animator;
     [SerializeField] private float startDelay = 3f;
+    [SerializeField] private AudioClip loseClip;
+    [SerializeField] private AudioClip jumpClip;
+    private float startX;
+    private float distanceMoved;
+
 
     private bool isDead = false;
     private bool canMove = false;
+    public GameObject DistanceEnd;   
 
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
@@ -38,6 +44,9 @@ public class PlayerMovementLevel2 : MonoBehaviour
 
         animator.SetBool("isRunning", false);
         StartCoroutine(StartRunningAfterDelay());
+        startX = transform.position.x;
+        DistanceEnd.SetActive(true);
+
     }
 
     private void Update()
@@ -58,6 +67,10 @@ public class PlayerMovementLevel2 : MonoBehaviour
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
             animator.SetBool("isRunning", false);
         }
+        distanceMoved = transform.position.x - startX;
+
+        UIManagerLevel2.instance.UpdateDistance(Mathf.Max(0, distanceMoved));
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -78,12 +91,12 @@ public class PlayerMovementLevel2 : MonoBehaviour
     private void handleJump()
     {
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
         {
             if (isground)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-
+                FindFirstObjectByType<AudioLevel2>()?.playJumpSound();
             }
         }
         isground = Physics2D.OverlapCircle(groundcheck.position, 0.2f, groundLayer);
@@ -100,6 +113,7 @@ public class PlayerMovementLevel2 : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
         animator.SetTrigger("isDead");
+        FindFirstObjectByType<AudioLevel2>()?.playLoseSound();
 
         // Gọi UI sau một chút để animation kịp hiển thị
         Invoke(nameof(ShowLoseUI), 1f);
@@ -110,6 +124,7 @@ public class PlayerMovementLevel2 : MonoBehaviour
         if (loseUI != null)
         {
             loseUI.SetActive(true);
+            DistanceEnd.SetActive(true);
             Time.timeScale = 0f; // Dừng game
         }
         else

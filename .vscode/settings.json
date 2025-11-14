@@ -66,5 +66,6 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj",
     },
-    "dotnet.defaultSolution": "Group2-se1888-Shadow-s-Wrath.sln"
+    "dotnet.defaultSolution": "Group2-se1888-Shadow-s-Wrath.sln",
+    "dotnet.preferCSharpExtension": true
 }

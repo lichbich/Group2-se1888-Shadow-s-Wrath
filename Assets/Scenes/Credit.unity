@@ -155,8 +155,8 @@ Camera:
   m_GameObject: {fileID: 724265312}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -362,7 +362,7 @@ RectTransform:
   m_GameObject: {fileID: 903639107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.30715, y: 10.30715, z: 10.30715}
+  m_LocalScale: {x: 10.30715, y: 14.557818, z: 10.30715}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2121428429}
@@ -445,7 +445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1334}
+  m_AnchoredPosition: {x: 0, y: -3536}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &993655428
@@ -535,8 +535,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1e738d991beb34d419a0697ac81b00be, type: 3}
-  m_Resource: {fileID: 8300000, guid: 1e738d991beb34d419a0697ac81b00be, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 671965cf09e3d8b4699c63d6ad85d11a, type: 3}
+  m_Resource: {fileID: 8300000, guid: 671965cf09e3d8b4699c63d6ad85d11a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -753,7 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0778703f75a90e4ca0d436134ae7c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 20
+  duration: 252
 --- !u!1 &2138728252
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,8 +790,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: -892.2888}
-  m_SizeDelta: {x: 1004.5146, y: 719.5777}
+  m_AnchoredPosition: {x: 0, y: -3375}
+  m_SizeDelta: {x: 1186.1074, y: 5483.9004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2138728254
 Animator:
@@ -835,15 +835,59 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "GAME: SHADOW\u2019S WRATH\r\n\r\nM\xD4 T\u1EA2:\r\nA dark adventure through
-    cursed ruins...\n\n\r\n\r\nTH\xC0NH VI\xCAN D\u1EF0 \xC1N:\r\n\u0110o\xE0n Tr\u1ECDng
-    L\u1ECBch\r\nPh\xED Ho\xE0ng Nam\r\nL\xEA Th\u1EBF Nam\r\nNguy\u1EC5n \u0110\u1EE9c
-    Anh\nMai Gia Kh\xE1nh\r\n\r\nC\u1EA3m \u01A1n b\u1EA1n \u0111\xE3 ho\xE0n th\xE0nh
-    game!\n\u0110\u1EB7c bi\u1EC7t c\u1EA3m \u01A1n c\xF4 ThuyBT \u0111\xE3 h\u01B0\u1EDBng
-    d\u1EABn m\xF4n h\u1ECDc gi\xFAp ch\xFAng em ho\xE0n th\xE0nh d\u1EF1 \xE1n n\xE0y!\r\n"
+  m_text: "<align=center>\n<color=#ca8934><size=150%><b>GAME TITLE:</b></size></color>\n<color=#ca8934><size=160%><b>SHADOW\u2019S
+    WRATH</b></size></color>\n\n<i>When darkness awakens\u2026 vengeance follows.</i>\n\n<color=#ca8934><size=130%><b>GI\u1EDAI
+    THI\u1EC6U:</b></size></color>\nGi\u1EEFa t\xE0n t\xEDch c\u1EE7a m\u1ED9t \u0111\u1EBF
+    ch\u1EBF b\u1ECB l\xE3ng qu\xEAn, m\u1ED9t linh h\u1ED3n l\u1EA1c l\u1ED1i tr\u1ED7i
+    d\u1EADy. B\xF3ng t\u1ED1i bao tr\xF9m, \xE1nh s\xE1ng t\xE0n phai \u2014 ch\u1EC9
+    c\xF2n l\u1EA1i c\u01A1n th\u1ECBnh n\u1ED9. M\u1ED9t h\xE0nh tr\xECnh chu\u1ED9c
+    l\u1ED7i, m\u1ED9t b\u1EA3n giao h\u01B0\u1EDFng c\u1EE7a m\xE1u, th\xE9p, v\xE0
+    k\xFD \u1EE9c.\n\n<color=#ca8934><size=130%><b>DEVELOPMENT TEAM</b></size></color>\n\n<color=#ca8934><size=120%><b>G2
+    STUDIO</b></size></color>\n\n<color=#ca8934><b>Executive Producer</b></color>\n\u0110o\xE0n
+    Tr\u1ECDng L\u1ECBch\n\n<color=#ca8934><b>Project Director</b></color>\nPh\xED
+    Ho\xE0ng Nam\n\n<color=#ca8934><b>Lead Game Designer</b></color>\nNguy\u1EC5n
+    \u0110\u1EE9c Anh\n\n<color=#ca8934><b>Art Director</b></color>\nMai Gia Kh\xE1nh\n\n<color=#ca8934><b>Programming
+    Team</b></color>\n\u0110o\xE0n Tr\u1ECDng L\u1ECBch \u2013 Gameplay Mechanics\nPh\xED
+    Ho\xE0ng Nam \u2013 Physics & AI Systems\nL\xEA Th\u1EBF Nam \u2013 Animation
+    Controller\nNguy\u1EC5n \u0110\u1EE9c Anh \u2013 Character Controller, Camera\nMai
+    Gia Kh\xE1nh \u2013 UI Programming\n\n<color=#ca8934><b>Art & Visual Design</b></color>\nNguy\u1EC5n
+    \u0110\u1EE9c Anh \u2013 Character Design\nMai Gia Kh\xE1nh \u2013 UI & Menu
+    Art\nPh\xED Ho\xE0ng Nam \u2013 Environment Concept\nL\xEA Th\u1EBF Nam \u2013
+    Lighting & Post-Processing\n\u0110o\xE0n Tr\u1ECDng L\u1ECBch \u2013 Particle
+    Effects\n\n<color=#ca8934><b>Audio & Soundtrack</b></color>\nMai Gia Kh\xE1nh
+    \u2013 Original Composition\nMai Gia Kh\xE1nh \u2013 Sound Design & Mixing\n\u0110o\xE0n
+    Tr\u1ECDng L\u1ECBch \u2013 Support\nMai Gia Kh\xE1nh \u2013 Ambient Effects\n\n<color=#ca8934><b>Story
+    & Script</b></color>\nMai Gia Kh\xE1nh \u2013 Narrative Writing\n\u0110o\xE0n
+    Tr\u1ECDng L\u1ECBch \u2013 Dialogue & Lore\nPh\xED Ho\xE0ng Nam \u2013 Quest
+    Flow Design\n\n<color=#ca8934><b>Technical Support & Optimization</b></color>\nL\xEA
+    Th\u1EBF Nam \u2013 Performance Tuning\nNguy\u1EC5n \u0110\u1EE9c Anh \u2013
+    Debugging\nPh\xED Ho\xE0ng Nam \u2013 Cross-platform Build\n\u0110o\xE0n Tr\u1ECDng
+    L\u1ECBch \u2013 Scene Management\n\n<color=#ca8934><b>Cinematic & Trailer</b></color>\n\u0110o\xE0n
+    Tr\u1ECDng L\u1ECBch \u2013 Direction & Editing\nMai Gia Kh\xE1nh \u2013 Title
+    Sequence & Credits\nL\xEA Th\u1EBF Nam \u2013 Camera Animation\n\n<color=#ca8934><b>Testing
+    & QA</b></color>\nPh\xED Ho\xE0ng Nam\nL\xEA Th\u1EBF Nam\n\u0110o\xE0n Tr\u1ECDng
+    L\u1ECBch\nMai Gia Kh\xE1nh\nNguy\u1EC5n \u0110\u1EE9c Anh\n\n<color=#ca8934><b>Build
+    & Release</b></color>\n\u0110o\xE0n Tr\u1ECDng L\u1ECBch\nPh\xED Ho\xE0ng Nam\n\n<color=#ca8934><size=130%><b>\u2764
+    Special Thanks To \u2764</b></size></color>\n\n<b>C\xF4 ThuyBT</b>, ng\u01B0\u1EDDi
+    \u0111\xE3 truy\u1EC1n c\u1EA3m h\u1EE9ng v\xE0 h\u01B0\u1EDBng d\u1EABn t\u1EADn
+    t\xECnh trong su\u1ED1t qu\xE1 tr\xECnh ph\xE1t tri\u1EC3n d\u1EF1 \xE1n.\n\nNh\u1EEFng
+    ng\u01B0\u1EDDi b\u1EA1n, gia \u0111\xECnh, v\xE0 t\u1EADp th\u1EC3 l\u1EDBp
+    \u2013 v\xEC ni\u1EC1m tin, s\u1EF1 \u0111\u1ED9ng vi\xEAn v\xE0 nh\u1EEFng \u0111\xEAm
+    th\u1EE9c tr\u1EAFng c\xF9ng nhau.\n\nC\u1ED9ng \u0111\u1ED3ng game indie Vi\u1EC7t
+    Nam, n\u01A1i kh\u01A1i ngu\u1ED3n \u0111am m\xEA.\n\n<color=#ca8934><size=130%><b>Soundtrack
+    Featuring:</b></size></color>\n<i>\u201CTreasure\u201D</i> \u2013 (S)trong\n<i>\u201CEclipse
+    of Fate\u201D</i> \u2013 Mai Gia Kh\xE1nh\n<i>\u201CRemnant of Light\u201D</i>
+    \u2013 \u0110o\xE0n Tr\u1ECDng L\u1ECBch\n\n<color=#ca8934><size=130%><b>To our
+    players:</b></size></color>\nC\u1EA3m \u01A1n b\u1EA1n \u0111\xE3 \u0111\u1ED3ng
+    h\xE0nh c\xF9ng ch\xFAng t\xF4i \u0111\u1EBFn t\u1EADn c\xF9ng c\u1EE7a b\xF3ng
+    t\u1ED1i.\n<i>N\u1EBFu b\u1EA1n c\u1EA3m th\u1EA5y tr\xE1i tim m\xECnh v\u1EABn
+    c\xF2n \u0111\u1EADp khi \xE2m nh\u1EA1c d\u1EEBng l\u1EA1i\u2026</i>\n<i>Th\xEC
+    Shadow\u2019s Wrath v\u1EABn c\xF2n s\u1ED1ng trong b\u1EA1n.</i>\n\nTHE END...
+    OR THE BEGINNING OF A NEW CURSE.\n\n<size=90%>Shadow Studio \xA9 2025 \u2014
+    All Rights Reserved.</size>\n</align>"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a1c0936dd239cab4587b18c4b9987b06, type: 2}
+  m_sharedMaterial: {fileID: -4459214918941885031, guid: a1c0936dd239cab4587b18c4b9987b06, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

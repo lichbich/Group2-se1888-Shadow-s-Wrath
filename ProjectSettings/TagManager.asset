@@ -8,6 +8,10 @@ TagManager:
   - Ground
   - Trap
   - CameraTrigger
+  - Chest
+  - Key
+  - Enemy
+  - Audio
   layers:
   - Default
   - TransparentFX
